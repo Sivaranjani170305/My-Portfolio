@@ -1,0 +1,291 @@
+/* ==========================================
+   TABLET (992px and below)
+========================================== */
+
+@media (max-width: 992px){
+
+    /* Navbar */
+    .navbar-nav{
+        text-align:center;
+        padding-top:20px;
+    }
+
+    /* Hero */
+    .hero-section{
+        text-align:center;
+        padding-top:120px;
+    }
+
+    .hero-title{
+        font-size:48px;
+    }
+
+    .hero-description{
+        margin:auto;
+    }
+
+    .hero-info{
+        justify-content:center;
+    }
+
+    .social-icons{
+        justify-content:center;
+    }
+
+    .hero-image{
+        width:300px;
+        height:300px;
+        margin-top:30px;
+    }
+
+    .glow-circle{
+        width:320px;
+        height:320px;
+    }
+
+    /* Floating cards hide in tablet/mobile */
+    .floating-card{
+        display:none;
+    }
+
+    /* About */
+    .about-section{
+        text-align:center;
+    }
+
+    .about-image{
+        width:280px;
+        margin-bottom:25px;
+    }
+
+    /* Skills */
+    .tools-list{
+        justify-content:center;
+    }
+
+}
+
+/* ==========================================
+   MOBILE (768px and below)
+========================================== */
+
+@media (max-width:768px){
+
+    section{
+        padding:70px 0;
+    }
+
+    .hero-title{
+        font-size:38px;
+    }
+
+    .typing-text{
+        font-size:20px;
+    }
+
+    .hero-description{
+        font-size:15px;
+    }
+
+    .hero-image{
+        width:240px;
+        height:240px;
+    }
+
+    .hero-info{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .mini-card{
+        padding:15px 10px;
+    }
+
+    .mini-card h4{
+        font-size:20px;
+    }
+
+    .section-title{
+        font-size:32px;
+    }
+
+    .about-name{
+        font-size:28px;
+    }
+
+    .skill-card{
+        padding:25px 18px;
+    }
+
+    .skill-icon{
+        font-size:40px;
+    }
+
+}
+
+/* ==========================================
+   SMALL MOBILE (576px and below)
+========================================== */
+
+@media (max-width:576px){
+
+    .navbar-brand{
+        font-size:22px;
+    }
+
+    .hero-title{
+        font-size:32px;
+    }
+
+    .hero-badge{
+        font-size:12px;
+        padding:8px 16px;
+    }
+
+    .hero-description{
+        line-height:1.7;
+    }
+
+    .hero-image{
+        width:210px;
+        height:210px;
+    }
+
+    .btn-primary,
+    .btn-outline-light{
+        width:100%;
+    }
+
+    .social-icons{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .about-image{
+        width:220px;
+    }
+
+    .info-card{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .tools-list span{
+        font-size:13px;
+        padding:10px 16px;
+    }
+
+}
+
+/* ==========================================
+   PROJECT RESPONSIVE
+========================================== */
+
+@media(max-width:768px){
+
+    .project-image{
+        height:220px;
+    }
+
+    .project-content{
+        padding:24px;
+    }
+
+    .project-content h3{
+        font-size:22px;
+    }
+
+}
+
+@media(max-width:576px){
+
+    .project-image{
+        height:200px;
+    }
+
+    .project-buttons{
+        flex-direction:column;
+    }
+
+    .project-btn{
+        text-align:center;
+        width:100%;
+    }
+
+}
+
+/* ================= EXPERIENCE RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+    .journey-title h3 {
+        font-size: 23px;
+    }
+
+    .timeline-card {
+        padding: 25px;
+    }
+
+    .timeline-card h4 {
+        font-size: 20px;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .journey-title {
+        margin-top: 15px;
+    }
+
+    .timeline-card {
+        padding: 22px;
+    }
+
+    .timeline-card h4 {
+        font-size: 19px;
+    }
+
+    .timeline-card h5 {
+        font-size: 15px;
+    }
+
+}
+
+/* ================= CONTACT RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+    .contact-info,
+    .contact-form {
+        padding: 25px;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .footer-social {
+        justify-content: center;
+        margin-top: 15px;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .contact-info,
+    .contact-form {
+        padding: 22px;
+    }
+
+    .contact-info h3,
+    .contact-form h3 {
+        font-size: 22px;
+    }
+
+    .contact-item {
+        gap: 12px;
+    }
+
+}

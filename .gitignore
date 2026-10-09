@@ -1,0 +1,11 @@
+
+# Environment variables and secrets
+.env
+backend/.env
+
+# Dependencies
+node_modules/
+backend/node_modules/
+
+# Local configuration
+.DS_Store
