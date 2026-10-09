@@ -73,16 +73,15 @@ window.addEventListener("scroll",()=>{
 
 });
 
-// ===============================
+
+ // ===============================
 // CONTACT FORM
 // ===============================
 
 const contactForm = document.getElementById("contactForm");
 
 if (contactForm) {
-
     contactForm.addEventListener("submit", async function (event) {
-
         event.preventDefault();
 
         const name = document.getElementById("name").value.trim();
@@ -93,78 +92,77 @@ if (contactForm) {
         const submitButton = document.getElementById("contactSubmit");
         const formMessage = document.getElementById("formMessage");
 
-        // Button loading state
         submitButton.disabled = true;
         submitButton.innerHTML = `
             <i class="bi bi-hourglass-split"></i>
             Sending...
         `;
 
+        formMessage.innerHTML = "";
+
+        const controller = new AbortController();
+
+        const timeoutId = setTimeout(() => {
+            controller.abort();
+        }, 30000);
+
         try {
-
-            const response = await fetch("https://my-portfolio-fl8g.onrender.com/api/contact", {
-
-                method: "POST",
-
-                headers: {
-                    "Content-Type": "application/json"
-                },
-
-                body: JSON.stringify({
-                    name: name,
-                    email: email,
-                    subject: subject,
-                    message: message
-                })
-
-            });
+            const response = await fetch(
+                "https://my-portfolio-fl8g.onrender.com/api/contact",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        subject,
+                        message
+                    }),
+                    signal: controller.signal
+                }
+            );
 
             const data = await response.json();
 
-            if (response.ok) {
-
-                formMessage.innerHTML = `
-                    <div class="alert alert-success">
-                        <i class="bi bi-check-circle-fill"></i>
-                        ${data.message}
-                    </div>
-                `;
-
-                contactForm.reset();
-
-            } else {
-
-                formMessage.innerHTML = `
-                    <div class="alert alert-danger">
-                        <i class="bi bi-exclamation-circle-fill"></i>
-                        ${data.message}
-                    </div>
-                `;
-
+            if (!response.ok) {
+                throw new Error(
+                    data.message || "Failed to send message"
+                );
             }
 
-        } catch (error) {
+            formMessage.innerHTML = `
+                <div class="alert alert-success">
+                    <i class="bi bi-check-circle-fill"></i>
+                    ${data.message || "Message sent successfully!"}
+                </div>
+            `;
 
+            contactForm.reset();
+
+        } catch (error) {
             console.error("Contact Form Error:", error);
+
+            const errorMessage = error.name === "AbortError"
+                ? "Request timed out. Please try again."
+                : "Unable to send message. Please try again.";
 
             formMessage.innerHTML = `
                 <div class="alert alert-danger">
                     <i class="bi bi-exclamation-circle-fill"></i>
-                    Unable to send message. Please try again.
+                    ${errorMessage}
                 </div>
             `;
 
         } finally {
+            clearTimeout(timeoutId);
 
             submitButton.disabled = false;
-
             submitButton.innerHTML = `
                 <i class="bi bi-send-fill"></i>
                 Send Message
             `;
-
         }
-
     });
-
 }
