@@ -102,7 +102,7 @@ if (contactForm) {
 
         try {
 
-            const response = await fetch("http://localhost:5000/api/contact", {
+            const response = await fetch("https://my-portfolio-fl8g.onrender.com/api/contact", {
 
                 method: "POST",
 
